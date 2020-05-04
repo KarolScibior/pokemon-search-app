@@ -1,19 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Landing from './src/Landing';
+import Search from './src/Search';
 
-export default function App() {
+
+
+const App = () => {
+  const [page, setPage] = useState('landing');
+
+  const switchScreen = (screen) => {
+    setPage(screen);
+  }
+
+  const renderScreen = () => {
+    if (page === 'landing') {
+      return (
+        <Landing switchScreen={switchScreen}/>
+      );
+    } else if (page === 'search') {
+      return (
+        <Search switchScreen={switchScreen}/>
+      );
+    }
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      {
+        renderScreen()
+      }
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    flex: 1
+  }
 });
+
+export default App;

@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "pokemon-search-app",
+    "name": "Pokemon Search App",
     "slug": "pokemon-search-app",
     "platforms": [
       "ios",
@@ -23,6 +23,10 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "android": {
+      "package": "com.kscibior.pokemonsearch",
+      "versionCode": 1
+  }
   }
 }
